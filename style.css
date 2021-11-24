@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------- */
+/* -----header and menu ------------------------------ */
+/* --------------------------------------------------- */
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(to left, #f6d365, #d1a984); */
+    background: linear-gradient(to left, #16a085, #f4d03f);
+    z-index: -1;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    min-height: 10vh;
+    color: #fff;
+    align-items: center;
+}
+
+#logo {
+    grid-column: 2/3;
+    font-size: 24px;
+}
+
+.burger {
+    justify-self: end;
+    z-index: 100;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.nav-links {
+/* top + height = 100vh which means full screen */
+    position: absolute;
+    right: 0px;
+    height: 100vh;
+    top: 0px;
+    background-color: #16a085;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+    justify-content: space-around;
+    z-index: 10;
+}
+
+.nav-links li {
+    opacity: 0;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+    /* remove underline */
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+.nav-active {
+transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+from{
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+to{
+    opacity: 1;
+    transform: translateX(0px);
+}
+}
+
+.toggle .line1 {
+transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+opacity: 0;
+}
+
+.toggle .line3 {
+transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+
+section {
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+    /* background: lightblue; */
+    /* make sure how to work justify-content and align-center */
+}
+
+.hero {
+    height: 70%;
+    width: 100%;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    background: black;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 70%;
+}
+
+.headline {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    font-size: 100px;
+    /* ??? */
+    transform: translate(-20%, -70%);
+    color: #fff;
+    /* h1 text is coming top.
+         If not the title text is gonna be opacity same as img */
+    z-index: 3;    
+}
+
+/* ------------------------------------------- */
+/* --------------Responsive------------------- */
+/* ------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 70%;
+    }
+    
+
+    .headline{
+        font-size: 64px;
+        position: absolute;
+        top: 30%;
+        left: 5%;
+    
+    }
+}
